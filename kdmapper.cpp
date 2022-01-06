@@ -107,7 +107,7 @@ uint64_t kdmapper::MapDriver(HANDLE iqvw64e_device_handle, std::vector<uint8_t> 
 	return 0;
 }
 
-void kdmapper::RelocateImageByDelta(portable_executable::vec_relocs relocs, const uint64_t delta)
+void kdmapper::RelocateImageByDelta(const portable_executable::vec_relocs& relocs, const uint64_t delta)
 {
 	for (const auto& current_reloc : relocs)
 	{
@@ -122,7 +122,7 @@ void kdmapper::RelocateImageByDelta(portable_executable::vec_relocs relocs, cons
 	}
 }
 
-bool kdmapper::ResolveImports(HANDLE iqvw64e_device_handle, portable_executable::vec_imports imports)
+bool kdmapper::ResolveImports(HANDLE iqvw64e_device_handle, const portable_executable::vec_imports& imports)
 {
 	for (const auto& current_import : imports)
 	{

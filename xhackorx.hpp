@@ -14,7 +14,7 @@ namespace crypt {
         return 1013904223ull + (1664525ull * ((rounds > 0) ? linear_congruent_generator(rounds - 1) : (XSTR_SEED))) % 0xFFFFFFFF;
     }
 #define Random() linear_congruent_generator(10)
-#define XSTR_RANDOM_NUMBER(Min, Max) (Min + (Random() % (Max - Min + 1)))
+#define XSTR_RANDOM_NUMBER(Min, Max) ((Min) + (Random() % ((Max) - (Min) + 1)))
 
     constexpr const unsigned long long XORKEY = XSTR_RANDOM_NUMBER(0, 0xFF);
     template<typename Char >
