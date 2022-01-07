@@ -450,7 +450,7 @@ unordered_map<string, string> MyMACAddr::getAdapters()
 			}
 			str_mac = temp.str();
 			temp.str("");
-			temp.rdbuf();
+			delete temp.rdbuf();
 			for (auto& c : str_mac)
 			{
 				c = toupper(c);
